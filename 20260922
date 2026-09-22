@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>교사 묵상 · 37과</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FCF4E8; --bg-2:#F8E9D5; --surface:#FFFDF9; --peach:#FCEADF; --peach-deep:#FBDFCC;
+    --ink:#3B322B; --ink-soft:#7A6A5C; --accent:#E88E74; --accent-strong:#D9755B;
+    --title:#8B5A44; --border:#F2C8B2; --border-soft:#F6DDCC;
+    --serif:'Gowun Batang','Nanum Myeongjo',serif;
+    --sans:'Gowun Dodum','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    --display:'Jua','Apple SD Gothic Neo',sans-serif;
+    --fs-scale:1;
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --bg:#221A15; --bg-2:#2A2019; --surface:#2E251E; --peach:#3A2D24;
+      --peach-deep:#43342A; --ink:#F1E6D8; --ink-soft:#C4B3A2; --accent:#EC9A80;
+      --accent-strong:#F2AC93; --title:#EAB48D; --border:#4E3B2E; --border-soft:#3E3025;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#221A15; --bg-2:#2A2019; --surface:#2E251E; --peach:#3A2D24;
+    --peach-deep:#43342A; --ink:#F1E6D8; --ink-soft:#C4B3A2; --accent:#EC9A80;
+    --accent-strong:#F2AC93; --title:#EAB48D; --border:#4E3B2E; --border-soft:#3E3025;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);
+    background-attachment:fixed; color:var(--ink); font-family:var(--serif);
+    -webkit-text-size-adjust:100%; line-height:1.9;
+  }
+  .wrap{max-width:620px;margin:0 auto;padding:0 16px calc(48px + env(safe-area-inset-bottom));}
+  .fs-bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:flex-end;
+    gap:8px;padding:10px 2px;background:linear-gradient(180deg,var(--bg) 60%,transparent);}
+  .fs-bar .lbl{font-family:var(--sans);font-size:12.5px;color:var(--ink-soft);margin-right:2px;letter-spacing:.02em;}
+  .fs-btn{font-family:var(--display);border:1.5px solid var(--border);background:var(--surface);
+    color:var(--title);width:38px;height:38px;border-radius:12px;font-size:16px;cursor:pointer;
+    display:grid;place-items:center;line-height:1;transition:transform .08s ease,background .15s ease;
+    -webkit-tap-highlight-color:transparent;}
+  .fs-btn:active{transform:scale(.92);background:var(--peach);}
+  .fs-btn:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;}
+  .fs-btn.reset{font-size:15px;width:auto;padding:0 12px;}
+  .masthead{text-align:center;padding:14px 0 6px;}
+  .eyebrow{font-family:var(--sans);font-size:13px;color:var(--accent-strong);letter-spacing:.14em;}
+  .title{font-family:var(--display);color:var(--title);font-size:clamp(46px,15vw,68px);
+    line-height:1.02;margin:6px 0 2px;letter-spacing:.01em;}
+  .title-underline{display:block;margin:2px auto 0;width:min(220px,62%);height:14px;}
+  .title-underline path{stroke:var(--accent);stroke-width:5;fill:none;stroke-linecap:round;opacity:.85;}
+  .kicker{font-family:var(--sans);font-size:14px;color:var(--ink-soft);margin-top:12px;}
+  .scripture{margin:22px 0 6px;background:var(--peach);border:1.5px solid var(--border);
+    border-radius:18px;padding:16px 18px;text-align:center;}
+  .scripture .s-label{font-family:var(--sans);font-size:13px;color:var(--accent-strong);margin-bottom:6px;}
+  .scripture .s-ref{font-family:var(--display);color:var(--title);font-size:calc(24px * var(--fs-scale));line-height:1.3;}
+  .card{background:var(--surface);border:1.5px solid var(--border-soft);border-radius:22px;
+    padding:22px 20px 24px;margin-top:18px;box-shadow:0 6px 20px rgba(150,90,55,.06);}
+  .card h2{font-family:var(--display);color:var(--title);font-size:calc(21px * var(--fs-scale));
+    margin:0 0 4px;display:flex;align-items:center;gap:9px;}
+  .card h2::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none;}
+  .head-rule{height:1.5px;background:repeating-linear-gradient(90deg,var(--border) 0 9px,transparent 9px 16px);
+    margin:12px 0 16px;border:0;}
+  .meditation p{font-size:calc(16.5px * var(--fs-scale));color:var(--ink);margin:0 0 1.2em;
+    word-break:keep-all;text-align:justify;}
+  .meditation p:last-child{margin-bottom:0;}
+  .meditation p.closing{background:var(--peach);border-radius:14px;padding:15px 16px;margin-top:20px;}
+  .prayer ul{list-style:none;margin:0;padding:0;}
+  .prayer li{display:flex;gap:12px;align-items:flex-start;padding:14px 15px;background:var(--peach);
+    border-radius:15px;margin-bottom:11px;font-size:calc(15.5px * var(--fs-scale));color:var(--ink);word-break:keep-all;}
+  .prayer li:last-child{margin-bottom:0;}
+  .prayer .mark{flex:none;font-size:calc(18px * var(--fs-scale));line-height:1.5;filter:saturate(.9);}
+  footer{text-align:center;margin-top:30px;padding-top:22px;border-top:1.5px dashed var(--border);}
+  footer .church{font-family:var(--display);color:var(--title);font-size:19px;}
+  footer .lesson{font-family:var(--sans);font-size:13px;color:var(--ink-soft);margin-top:4px;}
+  .fade-in{animation:rise .6s ease both;}
+  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){.fade-in{animation:none;}.fs-btn{transition:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="fs-bar">
+    <span class="lbl">글자 크기</span>
+    <button class="fs-btn" id="fs-minus" aria-label="글자 작게">가−</button>
+    <button class="fs-btn reset" id="fs-reset" aria-label="글자 크기 기본으로">기본</button>
+    <button class="fs-btn" id="fs-plus" aria-label="글자 크게">가＋</button>
+  </div>
+
+  <main class="fade-in">
+    <header class="masthead">
+      <div class="eyebrow">오늘의 말씀 · 함께해요</div>
+      <h1 class="title">교사 묵상</h1>
+      <svg class="title-underline" viewBox="0 0 220 14" aria-hidden="true">
+        <path d="M6 9 C 55 3, 100 12, 150 5 S 210 8, 214 6"/>
+      </svg>
+      <div class="kicker">선생님을 위한 한 주의 묵상</div>
+    </header>
+
+    <section class="scripture">
+      <div class="s-label">본문 말씀</div>
+      <div class="s-ref">예레미야 31:31–34</div>
+    </section>
+
+    <article class="card meditation">
+      <h2>말씀 묵상</h2>
+      <hr class="head-rule">
+      <p>사랑하는 선생님들, 오늘 우리는 예레미야 선지자를 통해 주신 가슴 벅찬 '새 언약'의 약속을 만납니다. 이스라엘 백성은 돌판에 새겨진 옛 언약을 끝내 지키지 못하고 실패했습니다. 겉으로 드러난 차가운 법조문만으로는 부패한 인간의 마음을 온전히 바꿀 수 없었기 때문입니다. 그래서 하나님은 돌판이 아닌, 백성들의 '마음과 생각'에 하나님의 법을 직접 기록하시겠다고 선언하십니다. 이것이 성령님을 통해 우리 영혼의 심비에 새겨지는 위대한 '새 언약'입니다. 억지로 지켜야 하는 무거운 짐이 아니라, 성령이 주시는 기쁨과 사랑으로 자발적인 순종을 이끄시는 생명의 법입니다.</p>
+
+      <p>우리 교사들의 영적 상태는 지금 어떠합니까? 주일을 지키고 아이들을 가르치는 일이 어느새 기쁨을 잃고 무거운 의무감이나 율법적인 습관으로 변하지는 않았습니까? 겉모습은 교사로 멋지게 포장되어 있지만, 속마음은 은혜의 첫 감격을 잃은 채 돌처럼 굳어가고 있을지도 모릅니다. 지금 우리에게 가장 시급한 것은 내 열심을 쥐어짜는 것이 아니라, 성령님께서 내 굳은 마음에 찾아오시어 생명의 말씀을 선명하게 새겨주시는 은혜입니다. 내 힘으로 하려던 모든 교만과 탈진을 십자가 앞에 내려놓을 때, 성령님은 우리를 무거운 짐에서 벗어나게 하시고 다시금 기쁨으로 사역하게 하십니다.</p>
+
+      <p>선생님의 마음 판에 성령의 새 언약이 뜨겁게 새겨질 때, 그 생명력은 우리 반 교실을 풍성하게 채웁니다. 잔소리나 규칙만으로는 방황하는 아이들의 영혼을 결코 변화시킬 수 없습니다. 우리가 먼저 성령의 감동으로 기뻐하며 섬길 때, 굳게 닫힌 아이들의 마음도 부드럽게 녹아내릴 것입니다. 그 부드러운 마음 밭에 예수님의 십자가 사랑이 심길 때, 우리 아이들은 세상 유혹을 이겨내고 자발적으로 하나님께 순종하는 거룩한 백성으로 자라나게 됩니다.</p>
+
+      <p class="closing">이번 한 주, 메마른 내 심령에 성령의 충만한 은혜를 구하며, 마음 판에 새겨진 말씀의 능력을 온전히 누립시다. 내 힘을 완전히 뺀 자리에 성령께서 일하시는 이 놀라운 새 언약의 기적이 우리 반 아이들의 영혼을 아름답게 빚어가는 거룩한 축복이 되기를 소망합니다.</p>
+    </article>
+
+    <section class="card prayer">
+      <h2>기도 제목</h2>
+      <hr class="head-rule">
+      <ul>
+        <li><span class="mark">🙏</span><span>내 힘으로 율법을 지키려던 교만을 회개하고, 성령님이 주시는 새 마음으로 회복되게 하소서.</span></li>
+        <li><span class="mark">🙏</span><span>마비된 내 영혼의 심비에 생명의 말씀을 선명하게 새겨주시고 온전한 순종의 능력을 주소서.</span></li>
+        <li><span class="mark">🙏</span><span>아이들이 돌처럼 굳은 마음을 버리고, 성령님이 이끄시는 부드러운 마음으로 변화되게 하소서.</span></li>
+      </ul>
+    </section>
+
+    <footer>
+      <div class="church">서울시민교회</div>
+      <div class="lesson">37과</div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement;
+    var MIN=0.85, MAX=1.6, STEP=0.1, DEF=1;
+    var scale=DEF;
+    try{ var s=localStorage.getItem('gyosa-fs'); if(s){ scale=parseFloat(s)||DEF; } }catch(e){}
+    function clamp(v){ return Math.min(MAX, Math.max(MIN, Math.round(v*100)/100)); }
+    function apply(){
+      root.style.setProperty('--fs-scale', scale);
+      try{ localStorage.setItem('gyosa-fs', scale); }catch(e){}
+    }
+    apply();
+    document.getElementById('fs-minus').addEventListener('click',function(){ scale=clamp(scale-STEP); apply(); });
+    document.getElementById('fs-plus').addEventListener('click',function(){ scale=clamp(scale+STEP); apply(); });
+    document.getElementById('fs-reset').addEventListener('click',function(){ scale=DEF; apply(); });
+  })();
+</script>
+</body>
+</html>
