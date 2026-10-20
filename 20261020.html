@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>교사 묵상 · 40과</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FCF4E8; --bg-2:#F8E9D5; --surface:#FFFDF9; --peach:#FCEADF; --peach-deep:#FBDFCC;
+    --ink:#3B322B; --ink-soft:#7A6A5C; --accent:#E88E74; --accent-strong:#D9755B;
+    --title:#8B5A44; --border:#F2C8B2; --border-soft:#F6DDCC;
+    --serif:'Gowun Batang','Nanum Myeongjo',serif;
+    --sans:'Gowun Dodum','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    --display:'Jua','Apple SD Gothic Neo',sans-serif;
+    --fs-scale:1;
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --bg:#221A15; --bg-2:#2A2019; --surface:#2E251E; --peach:#3A2D24;
+      --peach-deep:#43342A; --ink:#F1E6D8; --ink-soft:#C4B3A2; --accent:#EC9A80;
+      --accent-strong:#F2AC93; --title:#EAB48D; --border:#4E3B2E; --border-soft:#3E3025;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#221A15; --bg-2:#2A2019; --surface:#2E251E; --peach:#3A2D24;
+    --peach-deep:#43342A; --ink:#F1E6D8; --ink-soft:#C4B3A2; --accent:#EC9A80;
+    --accent-strong:#F2AC93; --title:#EAB48D; --border:#4E3B2E; --border-soft:#3E3025;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);
+    background-attachment:fixed; color:var(--ink); font-family:var(--serif);
+    -webkit-text-size-adjust:100%; line-height:1.9;
+  }
+  .wrap{max-width:620px;margin:0 auto;padding:0 16px calc(48px + env(safe-area-inset-bottom));}
+  .fs-bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:flex-end;
+    gap:8px;padding:10px 2px;background:linear-gradient(180deg,var(--bg) 60%,transparent);}
+  .fs-bar .lbl{font-family:var(--sans);font-size:12.5px;color:var(--ink-soft);margin-right:2px;letter-spacing:.02em;}
+  .fs-btn{font-family:var(--display);border:1.5px solid var(--border);background:var(--surface);
+    color:var(--title);width:38px;height:38px;border-radius:12px;font-size:16px;cursor:pointer;
+    display:grid;place-items:center;line-height:1;transition:transform .08s ease,background .15s ease;
+    -webkit-tap-highlight-color:transparent;}
+  .fs-btn:active{transform:scale(.92);background:var(--peach);}
+  .fs-btn:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;}
+  .fs-btn.reset{font-size:15px;width:auto;padding:0 12px;}
+  .masthead{text-align:center;padding:14px 0 6px;}
+  .eyebrow{font-family:var(--sans);font-size:13px;color:var(--accent-strong);letter-spacing:.14em;}
+  .title{font-family:var(--display);color:var(--title);font-size:clamp(46px,15vw,68px);
+    line-height:1.02;margin:6px 0 2px;letter-spacing:.01em;}
+  .title-underline{display:block;margin:2px auto 0;width:min(220px,62%);height:14px;}
+  .title-underline path{stroke:var(--accent);stroke-width:5;fill:none;stroke-linecap:round;opacity:.85;}
+  .kicker{font-family:var(--sans);font-size:14px;color:var(--ink-soft);margin-top:12px;}
+  .scripture{margin:22px 0 6px;background:var(--peach);border:1.5px solid var(--border);
+    border-radius:18px;padding:16px 18px;text-align:center;}
+  .scripture .s-label{font-family:var(--sans);font-size:13px;color:var(--accent-strong);margin-bottom:6px;}
+  .scripture .s-ref{font-family:var(--display);color:var(--title);font-size:calc(24px * var(--fs-scale));line-height:1.3;}
+  .card{background:var(--surface);border:1.5px solid var(--border-soft);border-radius:22px;
+    padding:22px 20px 24px;margin-top:18px;box-shadow:0 6px 20px rgba(150,90,55,.06);}
+  .card h2{font-family:var(--display);color:var(--title);font-size:calc(21px * var(--fs-scale));
+    margin:0 0 4px;display:flex;align-items:center;gap:9px;}
+  .card h2::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none;}
+  .head-rule{height:1.5px;background:repeating-linear-gradient(90deg,var(--border) 0 9px,transparent 9px 16px);
+    margin:12px 0 16px;border:0;}
+  .meditation p{font-size:calc(16.5px * var(--fs-scale));color:var(--ink);margin:0 0 1.2em;
+    word-break:keep-all;text-align:justify;}
+  .meditation p:last-child{margin-bottom:0;}
+  .meditation p.closing{background:var(--peach);border-radius:14px;padding:15px 16px;margin-top:20px;}
+  .prayer ul{list-style:none;margin:0;padding:0;}
+  .prayer li{display:flex;gap:12px;align-items:flex-start;padding:14px 15px;background:var(--peach);
+    border-radius:15px;margin-bottom:11px;font-size:calc(15.5px * var(--fs-scale));color:var(--ink);word-break:keep-all;}
+  .prayer li:last-child{margin-bottom:0;}
+  .prayer .mark{flex:none;font-size:calc(18px * var(--fs-scale));line-height:1.5;filter:saturate(.9);}
+  footer{text-align:center;margin-top:30px;padding-top:22px;border-top:1.5px dashed var(--border);}
+  footer .church{font-family:var(--display);color:var(--title);font-size:19px;}
+  footer .lesson{font-family:var(--sans);font-size:13px;color:var(--ink-soft);margin-top:4px;}
+  .fade-in{animation:rise .6s ease both;}
+  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){.fade-in{animation:none;}.fs-btn{transition:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="fs-bar">
+    <span class="lbl">글자 크기</span>
+    <button class="fs-btn" id="fs-minus" aria-label="글자 작게">가−</button>
+    <button class="fs-btn reset" id="fs-reset" aria-label="글자 크기 기본으로">기본</button>
+    <button class="fs-btn" id="fs-plus" aria-label="글자 크게">가＋</button>
+  </div>
+
+  <main class="fade-in">
+    <header class="masthead">
+      <div class="eyebrow">오늘의 말씀 · 함께해요</div>
+      <h1 class="title">교사 묵상</h1>
+      <svg class="title-underline" viewBox="0 0 220 14" aria-hidden="true">
+        <path d="M6 9 C 55 3, 100 12, 150 5 S 210 8, 214 6"/>
+      </svg>
+      <div class="kicker">선생님을 위한 한 주의 묵상</div>
+    </header>
+
+    <section class="scripture">
+      <div class="s-label">본문 말씀</div>
+      <div class="s-ref">요나 4:1–11</div>
+    </section>
+
+    <article class="card meditation">
+      <h2>말씀 묵상</h2>
+      <hr class="head-rule">
+      <p>사랑하는 선생님들, 오늘 우리는 원수 같은 니느웨 백성까지도 구원하시려는 하나님의 크신 사랑을 마주합니다. 요나 선지자는 니느웨에 복음을 전하라는 명령을 거부하고 도망쳤습니다. 이스라엘을 괴롭히던 원수들이 용서받는 것이 싫었기 때문입니다. 물고기 뱃속에서 나온 뒤에도 그는 억지로 건성건성 말씀을 전했습니다. 하지만 하나님은 그 불성실한 외침에도 백성들의 마음을 찢어 위대한 회개를 일으키셨습니다. 불평하는 요나에게 하나님은 박넝쿨 비유를 통해 방황하는 생명을 아끼는 것이 마땅하다고 반문하십니다. 성경이 선포하는 진리는 바로 '차별 없이 모든 영혼을 향하는 하나님의 멈출 수 없는 사랑'입니다.</p>
+
+      <p>영혼을 돌보는 우리 선생님들의 마음속에는 혹시 요나와 같은 좁은 편견이 숨어 있지는 않습니까? 내 마음에 들고 내 말을 잘 따르는 아이들에게만 사랑을 쏟고, 나를 힘들게 하는 아이들은 남몰래 외면하지 않았는지 십자가 앞에 비추어 보아야 합니다. 이방인보다 비참한 죄인이었던 나를 먼저 구원해주신 은혜를 묵상할 때, 우리는 나를 찌르는 이웃까지도 넉넉히 끌어안을 수 있습니다. 교사인 내 심령이 영혼을 아끼시는 아버지의 애타는 마음으로 먼저 채워져야만 편견 없이 복음을 전하는 생명의 통로가 될 수 있습니다.</p>
+
+      <p>선생님의 심령이 아버지의 넓은 사랑으로 가득해질 때 교실에는 기적이 시작됩니다. 조건 없는 선생님의 품 안에서, 상처받고 웅크려 있던 우리 반 아이들은 잃어버린 영혼을 찾으시는 예수님의 숨결을 경험하게 됩니다. 그 사랑을 맛본 아이들은 나만 구원받고 끝나는 이기적인 신앙을 넘어, 껄끄럽던 친구들에게까지 다가가 복음을 당당하게 전하는 거룩한 하나님 나라의 백성으로 자라납니다.</p>
+
+      <p class="closing">이번 한 주, 내 안의 좁은 편견을 십자가에 못 박고 영혼을 아끼시는 하나님 아버지의 넓은 마음을 온전히 구합시다. 선생님들의 차별 없는 섬김과 사랑을 통해 우리 반 아이들이 세상을 품고 복음을 전하는 위대한 축복의 세대로 든든히 세워지기를 간절히 기도합니다.</p>
+    </article>
+
+    <section class="card prayer">
+      <h2>기도 제목</h2>
+      <hr class="head-rule">
+      <ul>
+        <li><span class="mark">🙏</span><span>내 안에 있는 편견과 미움을 회개하고, 한 영혼을 끝까지 아끼시는 아버지의 마음을 품게 하소서.</span></li>
+        <li><span class="mark">🙏</span><span>자격 없는 나를 먼저 구원하신 은혜를 기억하며, 복음 전하기를 꺼리는 마음을 극복하게 하소서.</span></li>
+        <li><span class="mark">🙏</span><span>아이들이 차별 없이 복음을 전하며 잃어버린 영혼을 주님께로 인도하는 통로가 되게 하소서.</span></li>
+      </ul>
+    </section>
+
+    <footer>
+      <div class="church">서울시민교회</div>
+      <div class="lesson">40과</div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement;
+    var MIN=0.85, MAX=1.6, STEP=0.1, DEF=1;
+    var scale=DEF;
+    try{ var s=localStorage.getItem('gyosa-fs'); if(s){ scale=parseFloat(s)||DEF; } }catch(e){}
+    function clamp(v){ return Math.min(MAX, Math.max(MIN, Math.round(v*100)/100)); }
+    function apply(){
+      root.style.setProperty('--fs-scale', scale);
+      try{ localStorage.setItem('gyosa-fs', scale); }catch(e){}
+    }
+    apply();
+    document.getElementById('fs-minus').addEventListener('click',function(){ scale=clamp(scale-STEP); apply(); });
+    document.getElementById('fs-plus').addEventListener('click',function(){ scale=clamp(scale+STEP); apply(); });
+    document.getElementById('fs-reset').addEventListener('click',function(){ scale=DEF; apply(); });
+  })();
+</script>
+</body>
+</html>
